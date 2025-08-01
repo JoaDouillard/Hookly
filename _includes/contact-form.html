@@ -1,0 +1,102 @@
+<section id="contact-form" class="contact-section">
+    <div class="container">
+        <div class="contact-header">
+            <h2 class="section-title">Contactez-nous</h2>
+            <p class="section-description">Nous serions ravis d'échanger avec vous sur vos projets.</p>
+        </div>
+        
+        <form name="contact" method="POST" data-netlify="true" class="contact-form" netlify-honeypot="bot-field">
+            <!-- Champ anti-spam caché -->
+            <p class="hidden">
+                <label>Ne pas remplir ce champ si vous êtes humain : <input name="bot-field" /></label>
+            </p>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="prenom" class="form-label">Prénom *</label>
+                    <input type="text" id="prenom" name="prenom" class="form-input" required>
+                    <span class="error-message" data-field="prenom"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="nom" class="form-label">Nom *</label>
+                    <input type="text" id="nom" name="nom" class="form-input" required>
+                    <span class="error-message" data-field="nom"></span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="form-label">Email *</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+                <span class="error-message" data-field="email"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="objet" class="form-label">Objet *</label>
+                <select id="objet" name="objet" class="form-select" required>
+                    <option value="">Choisissez un objet</option>
+                    <option value="demande-service">Demande de service</option>
+                    <option value="demande-information">Demande d'information</option>
+                    <option value="proposition-partenariat">Proposition de partenariat</option>
+                    <option value="autre">Autre</option>
+                </select>
+                <span class="error-message" data-field="objet"></span>
+            </div>
+            
+            <!-- Section réseaux sociaux -->
+            <div class="form-group social-networks-section">
+                <div class="social-header">
+                    <label class="form-label">Vos réseaux sociaux (optionnel)</label>
+                    <button type="button" class="btn btn-secondary add-social-btn" id="addSocialNetwork">
+                        <span class="btn-icon">+</span> Ajouter un réseau
+                    </button>
+                </div>
+                <div id="socialNetworksContainer" class="social-networks-container">
+                    <!-- Les réseaux sociaux seront ajoutés dynamiquement ici -->
+                </div>
+                <p class="form-help">Maximum 5 réseaux sociaux</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="message" class="form-label">Message / Motivations *</label>
+                <textarea id="message" name="message" class="form-textarea" rows="6" required 
+                          placeholder="Décrivez votre projet, vos besoins ou vos motivations..."></textarea>
+                <span class="error-message" data-field="message"></span>
+            </div>
+            
+            <div class="form-submit">
+                <button type="submit" class="btn btn-primary submit-btn">
+                    <span class="btn-text">Envoyer le message</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Template pour les réseaux sociaux -->
+<template id="socialNetworkTemplate">
+    <div class="social-network-item">
+        <div class="social-network-fields">
+            <div class="form-group">
+                <select name="social-type" class="form-select social-type-select" required>
+                    <option value="">Type de réseau</option>
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="twitter">Twitter</option>
+                    <option value="tiktok">TikTok</option>
+                    <option value="youtube">YouTube</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" name="social-account" class="form-input social-account-input" 
+                       placeholder="Nom du compte ou URL" required>
+            </div>
+            <button type="button" class="btn btn-danger remove-social-btn" aria-label="Supprimer ce réseau">
+                ×
+            </button>
+        </div>
+    </div>
+</template>

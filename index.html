@@ -1,0 +1,289 @@
+---
+layout: default
+title: Accueil
+description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
+---
+
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Bienvenue chez Hookly</h1>
+            <p class="hero-description">
+                Votre partenaire de confiance pour concrétiser vos projets les plus ambitieux.
+            </p>
+            <div class="hero-actions">
+                <a href="#contact-form" class="btn btn-primary hero-btn">Démarrer votre projet</a>
+                <a href="{{ '/entreprise' | relative_url }}" class="btn btn-secondary hero-btn">Découvrir notre histoire</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-section">
+    <div class="container">
+        <h2 class="section-title">Nos domaines d'expertise</h2>
+        <p class="section-description">
+            Nous mettons notre savoir-faire au service de votre réussite dans différents domaines.
+        </p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <span class="service-emoji">🎯</span>
+                </div>
+                <h3 class="service-title">Stratégie</h3>
+                <p class="service-description">
+                    Nous vous accompagnons dans la définition et la mise en œuvre de votre stratégie d'entreprise.
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <span class="service-emoji">💡</span>
+                </div>
+                <h3 class="service-title">Innovation</h3>
+                <p class="service-description">
+                    Notre équipe vous aide à innover et à vous démarquer dans votre secteur d'activité.
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <span class="service-emoji">🚀</span>
+                </div>
+                <h3 class="service-title">Croissance</h3>
+                <p class="service-description">
+                    Ensemble, nous développons les leviers de croissance adaptés à votre entreprise.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="why-choose-section">
+    <div class="container">
+        <div class="why-choose-content">
+            <div class="why-choose-text">
+                <h2>Pourquoi choisir Hookly ?</h2>
+                <p>
+                    Fort de notre expérience et de notre passion, nous nous engageons à vous fournir 
+                    des solutions sur mesure qui répondent parfaitement à vos besoins spécifiques.
+                </p>
+                <ul class="why-choose-list">
+                    <li>
+                        <strong>Expertise reconnue</strong> - Une équipe de professionnels expérimentés
+                    </li>
+                    <li>
+                        <strong>Approche personnalisée</strong> - Des solutions adaptées à chaque client
+                    </li>
+                    <li>
+                        <strong>Résultats mesurables</strong> - Un accompagnement orienté performance
+                    </li>
+                    <li>
+                        <strong>Relation de confiance</strong> - Un partenariat durable et transparent
+                    </li>
+                </ul>
+                <div class="why-choose-actions">
+                    <a href="{{ '/equipe' | relative_url }}" class="btn btn-primary">Rencontrer l'équipe</a>
+                </div>
+            </div>
+            <div class="why-choose-visual">
+                <div class="visual-placeholder">
+                    <span class="visual-icon">🤝</span>
+                    <p>Votre partenaire de confiance</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Prêt à commencer votre projet ?</h2>
+            <p class="cta-description">
+                Contactez-nous dès aujourd'hui pour discuter de vos besoins et découvrir comment nous pouvons vous aider.
+            </p>
+            <div class="cta-actions">
+                <a href="#contact-form" class="btn btn-primary cta-btn">Nous contacter</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include contact-form.html %}
+
+<style>
+/* Styles spécifiques à la page d'accueil */
+.hero-section {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #f0e6d6 100%);
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: var(--color-gray-dark);
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    font-size: 1.125rem;
+    padding: var(--spacing-md) var(--spacing-xl);
+}
+
+.services-section {
+    padding: var(--spacing-xxl) 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.service-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-icon {
+    margin-bottom: var(--spacing-lg);
+}
+
+.service-emoji {
+    font-size: 3rem;
+    display: block;
+}
+
+.service-title {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.service-description {
+    color: var(--color-gray);
+    margin-bottom: 0;
+}
+
+.why-choose-section {
+    background-color: var(--color-gray-light);
+    padding: var(--spacing-xxl) 0;
+}
+
+.why-choose-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+}
+
+.why-choose-list {
+    list-style: none;
+    margin: var(--spacing-xl) 0;
+}
+
+.why-choose-list li {
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.why-choose-list li:last-child {
+    border-bottom: none;
+}
+
+.why-choose-actions {
+    margin-top: var(--spacing-xl);
+}
+
+.visual-placeholder {
+    background-color: var(--color-secondary);
+    padding: var(--spacing-xxl);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    border: 2px dashed var(--color-primary);
+}
+
+.visual-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: var(--spacing-lg);
+}
+
+.visual-placeholder p {
+    font-size: 1.125rem;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+}
+
+.cta-section {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+}
+
+.cta-title {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-lg);
+}
+
+.cta-description {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-btn {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border-color: var(--color-white);
+    font-size: 1.125rem;
+    padding: var(--spacing-md) var(--spacing-xl);
+}
+
+.cta-btn:hover {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .why-choose-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+</style>

@@ -1,0 +1,56 @@
+<header class="site-header">
+    <div class="container">
+        <div class="header-content">
+            <!-- Logo et nom de l'entreprise -->
+            <div class="logo-section">
+                <a href="{{ '/' | relative_url }}" class="logo-link">
+                    <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Logo Hookly" class="logo-image">
+                    <span class="logo-text">{{ site.company.name }}</span>
+                </a>
+            </div>
+            
+            <!-- Navigation principale -->
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    {% for item in site.navigation %}
+                        <li class="nav-item">
+                            <a href="{{ item.url | relative_url }}" 
+                               class="nav-link {% if page.url == item.url %}active{% endif %}">
+                                {{ item.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            
+            <!-- Bouton contact -->
+            <div class="contact-section">
+                <a href="#contact-form" class="btn btn-primary contact-btn">Contact</a>
+            </div>
+            
+            <!-- Menu mobile -->
+            <button class="mobile-menu-toggle" aria-label="Menu mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <!-- Navigation mobile -->
+        <nav class="mobile-nav">
+            <ul class="mobile-nav-list">
+                {% for item in site.navigation %}
+                    <li class="mobile-nav-item">
+                        <a href="{{ item.url | relative_url }}" 
+                           class="mobile-nav-link {% if page.url == item.url %}active{% endif %}">
+                            {{ item.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+                <li class="mobile-nav-item">
+                    <a href="#contact-form" class="mobile-nav-link contact-link">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

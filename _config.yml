@@ -1,0 +1,44 @@
+# Configuration Jekyll pour Hookly
+title: Hookly
+description: Site vitrine professionnel de l'entreprise Hookly
+baseurl: ""
+url: "https://hookly.fr"
+
+# Configuration Jekyll
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections et dossiers
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Exclusions
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Variables personnalisées
+company:
+  name: "Hookly"
+  colors:
+    primary: "#8c6b72"
+    secondary: "#f7ede3"
+
+# Navigation principale
+navigation:
+  - name: "Accueil"
+    url: "/"
+  - name: "L'entreprise"
+    url: "/entreprise"
+  - name: "Notre équipe"
+    url: "/equipe"

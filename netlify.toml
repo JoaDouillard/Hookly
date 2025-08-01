@@ -1,0 +1,113 @@
+# Configuration Netlify pour le site Hookly
+
+[build]
+  # Dossier de publication (généré par Jekyll)
+  publish = "_site"
+  
+  # Commande de build Jekyll
+  command = "bundle exec jekyll build"
+
+[build.environment]
+  # Version Jekyll
+  JEKYLL_VERSION = "4.2.0"
+  
+  # Variables d'environnement Ruby
+  RUBY_VERSION = "3.0.0"
+
+# Configuration des headers HTTP pour la sécurité
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Protection contre le clickjacking
+    X-Frame-Options = "DENY"
+    
+    # Protection XSS
+    X-XSS-Protection = "1; mode=block"
+    
+    # Prévention du sniffing MIME
+    X-Content-Type-Options = "nosniff"
+    
+    # Référer Policy
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Content Security Policy de base
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;"
+
+# Configuration pour les fichiers statiques avec cache long
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Configuration pour les images avec cache modéré
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# Redirections
+[[redirects]]
+  # Redirection www vers domaine principal
+  from = "https://www.hookly.fr/*"
+  to = "https://hookly.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  # Redirection HTTP vers HTTPS
+  from = "http://hookly.fr/*"
+  to = "https://hookly.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  # Page 404 personnalisée
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Configuration du formulaire de contact
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+# Configuration des fonctions (si nécessaire)
+[functions]
+  directory = "netlify/functions"
+
+# Variables d'environnement spécifiques au contexte
+[context.production.environment]
+  JEKYLL_ENV = "production"
+
+[context.deploy-preview.environment]
+  JEKYLL_ENV = "development"
+
+[context.branch-deploy.environment]
+  JEKYLL_ENV = "development"
+
+# Configuration pour les previews de déploiement
+[context.deploy-preview]
+  command = "bundle exec jekyll build --drafts --future"
+
+[context.branch-deploy]
+  command = "bundle exec jekyll build --drafts --future"
