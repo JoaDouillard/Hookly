@@ -182,7 +182,6 @@ a:hover {
   left: 0;
   right: 0;
   height: var(--header-height);
-  background-color: var(--color-secondary);
   z-index: 1000;
   padding: 0 var(--spacing-xl);
 }
@@ -226,9 +225,9 @@ a:hover {
 /* Navigation bulle réduite - côté gauche avec opacité 40% */
 .main-nav {
   position: relative;
-  background-color: rgba(179, 137, 146, 0.4);
+  background-color: var(--color-primary);
   padding: 8px 16px;
-  border-radius: 20px;
+  border-radius: 25px;
   flex-shrink: 0;
 }
 
@@ -263,10 +262,7 @@ a:hover {
 /* Slider dynamique - même couleur que nav mais opacité 100% */
 .nav-slider {
   position: absolute;
-  top: 4px;
-  left: 4px;
-  background-color: var(--color-primary);
-  opacity: 1;
+  background-color: rgba(179, 137, 146, 0.4);
   border-radius: 20px;
   transition: var(--transition-base);
   pointer-events: none;
