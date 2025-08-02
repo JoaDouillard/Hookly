@@ -262,7 +262,7 @@ a:hover {
 /* Slider dynamique - même couleur que nav mais opacité 100% */
 .nav-slider {
   position: absolute;
-  background-color: rgba(179, 137, 146, 0.4);
+  background-color: var(--color-secondary);
   border-radius: 20px;
   transition: var(--transition-base);
   pointer-events: none;
