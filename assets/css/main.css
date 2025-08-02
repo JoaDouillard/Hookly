@@ -102,7 +102,7 @@ p {
     color: var(--color-text) !important;
 }
 
-/* TOUS les textes en #5A4449 - FORCE GLOBALE */
+/* TOUS les textes en #5a4449 - FORCE GLOBALE */
 *,
 *::before,
 *::after,
@@ -111,7 +111,7 @@ body,
 h1, h2, h3, h4, h5, h6,
 p, span, div, a, li, label,
 input, textarea, select, button {
-    color: #5A4449 !important;
+    color: #5a4449 !important;
 }
 
 /* Exceptions pour le texte blanc dans les blocs colorés ET footer */
@@ -161,18 +161,18 @@ a:hover {
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     height: 100%;
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    gap: var(--spacing-xl);
+    width: 100%;
+    padding: 0 var(--spacing-md);
+    gap: var(--spacing-md);
 }
 
-/* Logo section - hameçon complètement à gauche */
+/* Logo section - hameçon vraiment à gauche */
 .logo-section {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    margin-right: var(--spacing-md);
 }
 
 .logo-link {
@@ -191,16 +191,17 @@ a:hover {
     font-family: var(--font-family-heading);
     font-size: 2.5rem;
     font-weight: var(--font-weight-bold);
-    color: var(--color-text);
+    color: #5a4449 !important;
 }
 
-/* Navigation avec slider exacte selon maquette - bulle centre-gauche */
+/* Navigation bulle réduite - côté gauche avec opacité 40% */
 .main-nav {
     position: relative;
     background-color: var(--color-primary);
-    border-radius: 40px;
-    padding: 8px;
-    margin-left: var(--spacing-xxl);
+    opacity: 0.4;
+    border-radius: 25px;
+    padding: 4px;
+    flex-shrink: 0;
 }
 
 .nav-list {
@@ -216,59 +217,61 @@ a:hover {
 
 .nav-link {
     display: block;
-    padding: 12px 20px;
-    color: var(--color-text);
+    padding: 8px 16px;
+    color: #5a4449 !important;
     text-decoration: none;
     font-weight: var(--font-weight-medium);
-    border-radius: 30px;
+    border-radius: 20px;
     transition: var(--transition-base);
     position: relative;
     z-index: 2;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .nav-link:hover {
-    color: var(--color-text);
+    color: #5a4449 !important;
 }
 
-/* Slider dynamique exact - couleur secondaire (beige) */
+/* Slider dynamique - même couleur que nav mais opacité 100% */
 .nav-slider {
     position: absolute;
-    top: 8px;
-    left: 8px;
-    background-color: var(--color-secondary);
-    border-radius: 30px;
+    top: 4px;
+    left: 4px;
+    background-color: var(--color-primary);
+    opacity: 1;
+    border-radius: 20px;
     transition: var(--transition-base);
     pointer-events: none;
     z-index: 1;
-    height: calc(100% - 16px);
+    height: calc(100% - 8px);
 }
 
 .nav-link.active {
-    color: var(--color-text);
-    background-color: var(--color-secondary);
+    color: #5a4449 !important;
 }
 
-/* Bouton contact dans le header - même style que navigation */
+/* Bouton contact dans le header - à droite */
 .contact-section {
     flex-shrink: 0;
+    margin-left: auto;
 }
 
 .contact-section .btn-contact {
     background-color: var(--color-primary);
-    color: var(--color-text);
-    padding: 12px 20px;
-    border-radius: 30px;
+    opacity: 0.4;
+    color: #5a4449 !important;
+    padding: 8px 16px;
+    border-radius: 20px;
     font-weight: var(--font-weight-medium);
     transition: var(--transition-base);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     box-shadow: var(--shadow-button);
 }
 
 .contact-section .btn-contact:hover {
-    opacity: 0.8;
-    color: var(--color-text);
+    opacity: 0.6;
+    color: #5a4449 !important;
 }
 
 /* Menu mobile */
