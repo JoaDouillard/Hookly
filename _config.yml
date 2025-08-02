@@ -34,11 +34,9 @@ company:
     primary: "#B38992"
     secondary: "#F7EDE3"
 
-# Navigation principale
+# Navigation principale (sans Accueil - le logo fait office d'accueil)
 navigation:
-  - name: "Accueil"
-    url: "/"
-  - name: "Qui sommes-nous"
+  - name: "Qui nous sommes"
     url: "/qui-sommes-nous"
-  - name: "Notre équipe"
+  - name: "Nos équipe"
     url: "/equipe"
