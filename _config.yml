@@ -31,14 +31,14 @@ exclude:
 company:
   name: "Hookly"
   colors:
-    primary: "#8c6b72"
-    secondary: "#f7ede3"
+    primary: "#B38992"
+    secondary: "#F7EDE3"
 
 # Navigation principale
 navigation:
   - name: "Accueil"
     url: "/"
-  - name: "L'entreprise"
-    url: "/entreprise"
+  - name: "Qui sommes-nous"
+    url: "/qui-sommes-nous"
   - name: "Notre équipe"
     url: "/equipe"
