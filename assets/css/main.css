@@ -102,31 +102,26 @@ p {
     color: var(--color-text) !important;
 }
 
-/* Tous les textes en #5A4449 */
-* {
-    color: var(--color-text);
+/* TOUS les textes en #5A4449 - FORCE GLOBALE */
+*,
+*::before,
+*::after,
+html,
+body,
+h1, h2, h3, h4, h5, h6,
+p, span, div, a, li, label,
+input, textarea, select, button {
+    color: #5A4449 !important;
 }
 
-/* Exceptions pour le texte blanc dans les blocs colorés */
-.content-block,
-.content-block h1,
-.content-block h2,
-.content-block h3,
-.content-block p,
-.site-footer,
-.site-footer h1,
-.site-footer h2,
-.site-footer h3,
-.site-footer h4,
-.site-footer p {
-    color: var(--color-white) !important;
-}
-
-/* Exceptions pour les boutons */
-.btn,
+/* Exceptions pour le texte blanc dans les blocs colorés ET footer */
+.content-block *,
+.site-footer *,
 .nav-link,
 .btn-contact,
-.submit-btn {
+.submit-btn,
+.form-input::placeholder,
+.form-textarea::placeholder {
     color: var(--color-white) !important;
 }
 
@@ -151,32 +146,33 @@ a:hover {
     display: none !important;
 }
 
-/* Header fixe selon la maquette - transparent sauf mobile */
+/* Header fixe selon la maquette - fond beige exact */
 .site-header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: var(--header-height);
-    background-color: transparent;
+    background-color: var(--color-secondary);
     z-index: 1000;
     padding: 0 var(--spacing-xl);
 }
 
 .header-content {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 100%;
     max-width: var(--container-max-width);
     margin: 0 auto;
     gap: var(--spacing-xl);
 }
 
-/* Logo section - hameçon */
+/* Logo section - hameçon complètement à gauche */
 .logo-section {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .logo-link {
@@ -186,9 +182,9 @@ a:hover {
 }
 
 .logo-image {
-    width: 120px;
-    height: 120px;
-    margin-right: var(--spacing-md);
+    width: 80px;
+    height: 80px;
+    margin-right: 0;
 }
 
 .logo-text {
@@ -198,14 +194,13 @@ a:hover {
     color: var(--color-text);
 }
 
-/* Navigation avec slider exacte selon maquette - opacité 40% */
+/* Navigation avec slider exacte selon maquette - bulle centre-gauche */
 .main-nav {
     position: relative;
     background-color: var(--color-primary);
-    opacity: 0.4;
-    border-radius: var(--border-radius-button);
-    padding: 4px;
-    justify-self: start;
+    border-radius: 40px;
+    padding: 8px;
+    margin-left: var(--spacing-xxl);
 }
 
 .nav-list {
@@ -221,11 +216,11 @@ a:hover {
 
 .nav-link {
     display: block;
-    padding: 12px 24px;
-    color: var(--color-white);
+    padding: 12px 20px;
+    color: var(--color-text);
     text-decoration: none;
     font-weight: var(--font-weight-medium);
-    border-radius: var(--border-radius-button);
+    border-radius: 30px;
     transition: var(--transition-base);
     position: relative;
     z-index: 2;
@@ -233,38 +228,37 @@ a:hover {
 }
 
 .nav-link:hover {
-    color: var(--color-white);
+    color: var(--color-text);
 }
 
-/* Slider dynamique exact - même couleur que nav mais opacité 100% */
+/* Slider dynamique exact - couleur secondaire (beige) */
 .nav-slider {
     position: absolute;
-    top: 4px;
-    left: 4px;
-    background-color: var(--color-primary);
-    opacity: 1;
-    border-radius: var(--border-radius-button);
+    top: 8px;
+    left: 8px;
+    background-color: var(--color-secondary);
+    border-radius: 30px;
     transition: var(--transition-base);
     pointer-events: none;
     z-index: 1;
-    height: calc(100% - 8px);
+    height: calc(100% - 16px);
 }
 
 .nav-link.active {
-    color: var(--color-white);
+    color: var(--color-text);
+    background-color: var(--color-secondary);
 }
 
-/* Bouton contact dans le header - opacité 40% */
+/* Bouton contact dans le header - même style que navigation */
 .contact-section {
-    justify-self: end;
+    flex-shrink: 0;
 }
 
 .contact-section .btn-contact {
     background-color: var(--color-primary);
-    opacity: 0.4;
-    color: var(--color-white);
-    padding: 12px 24px;
-    border-radius: var(--border-radius-button);
+    color: var(--color-text);
+    padding: 12px 20px;
+    border-radius: 30px;
     font-weight: var(--font-weight-medium);
     transition: var(--transition-base);
     text-decoration: none;
@@ -274,7 +268,7 @@ a:hover {
 
 .contact-section .btn-contact:hover {
     opacity: 0.8;
-    color: var(--color-white);
+    color: var(--color-text);
 }
 
 /* Menu mobile */
@@ -629,12 +623,11 @@ a:hover {
     
     .header-content {
         padding: 0 var(--spacing-md);
-        grid-template-columns: 1fr auto;
-        justify-items: center;
+        justify-content: space-between;
     }
     
     .logo-section {
-        justify-self: center;
+        /* Logo reste à gauche sur mobile */
     }
     
     .logo-image {
@@ -652,7 +645,6 @@ a:hover {
     
     .mobile-menu-toggle {
         display: flex;
-        justify-self: end;
     }
     
     .contact-section {

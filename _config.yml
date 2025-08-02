@@ -34,9 +34,11 @@ company:
     primary: "#B38992"
     secondary: "#F7EDE3"
 
-# Navigation principale (sans Accueil - le logo fait office d'accueil)
+# Navigation principale (Hookly en premier = accueil)
 navigation:
+  - name: "Hookly"
+    url: "/"
   - name: "Qui nous sommes"
     url: "/qui-sommes-nous"
-  - name: "Nos équipe"
+  - name: "Notre équipe"
     url: "/equipe"

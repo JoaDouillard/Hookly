@@ -1,14 +1,11 @@
 <header class="site-header">
     <div class="header-content">
-        <!-- Logo et nom de l'entreprise -->
+        <!-- Logo tout à gauche (séparé de la navigation) -->
         <div class="logo-section">
-            <a href="{{ '/' | relative_url }}" class="logo-link">
-                <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Logo Hookly" class="logo-image">
-                <span class="logo-text">{{ site.company.name }}</span>
-            </a>
+            <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Logo Hookly" class="logo-image">
         </div>
         
-        <!-- Navigation principale avec slider dynamique -->
+        <!-- Navigation principale avec slider dynamique (côté gauche) -->
         <nav class="main-nav">
             <div class="nav-slider" id="navSlider"></div>
             <ul class="nav-list">
@@ -24,9 +21,9 @@
             </ul>
         </nav>
         
-        <!-- Bouton contact -->
+        <!-- Bouton contact tout à droite -->
         <div class="contact-section">
-            <a href="#footer-form" class="btn-contact">Contact</a>
+            <a href="#footer-form" class="btn-contact">Contactez nous</a>
         </div>
         
         <!-- Menu mobile -->
@@ -49,7 +46,7 @@
                 </li>
             {% endfor %}
             <li class="mobile-nav-item">
-                <a href="#footer-form" class="mobile-nav-link contact-link">Contact</a>
+                <a href="#footer-form" class="mobile-nav-link contact-link">Contactez nous</a>
             </li>
         </ul>
     </nav>
