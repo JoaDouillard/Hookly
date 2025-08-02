@@ -161,7 +161,7 @@ a {
 }
 
 a:hover {
-  opacity: 0.8;
+  opacity: 1.4;
 }
 
 /* Utilitaires */
@@ -227,8 +227,8 @@ a:hover {
 .main-nav {
   position: relative;
   background-color: rgba(179, 137, 146, 0.4);
-  border-radius: 25px;
-  padding: 4px;
+  padding: 8px 16px;
+  border-radius: 20px;
   flex-shrink: 0;
 }
 
