@@ -1,117 +1,90 @@
 <footer class="site-footer">
-    <div class="container">
-        <div class="footer-content">
-            <!-- Formulaire de contact intégré au footer -->
-            <div class="footer-form" id="footer-form">
-                <h2>Contactez-nous</h2>
-                <p style="text-align: center; margin-bottom: 2rem; color: rgba(255,255,255,0.8);">
-                    Nous serions ravis d'échanger avec vous sur vos projets.
+    <div class="footer-content">
+        <!-- Formulaire de contact selon la maquette exacte -->
+        <div class="footer-form" id="footer-form">
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <!-- Champ anti-spam caché -->
+                <p class="hidden">
+                    <label>Ne pas remplir ce champ si vous êtes humain : <input name="bot-field" /></label>
                 </p>
                 
-                <form name="contact" method="POST" data-netlify="true" class="contact-form" netlify-honeypot="bot-field">
-                    <!-- Champ anti-spam caché -->
-                    <p class="hidden">
-                        <label>Ne pas remplir ce champ si vous êtes humain : <input name="bot-field" /></label>
-                    </p>
-                    
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="prenom" class="form-label">Prénom *</label>
-                            <input type="text" id="prenom" name="prenom" class="form-input" required>
-                            <span class="error-message" data-field="prenom"></span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="nom" class="form-label">Nom *</label>
-                            <input type="text" id="nom" name="nom" class="form-input" required>
-                            <span class="error-message" data-field="nom"></span>
-                        </div>
-                    </div>
-                    
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email *</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                            <span class="error-message" data-field="email"></span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="objet" class="form-label">Objet *</label>
-                            <select id="objet" name="objet" class="form-select" required>
-                                <option value="">Choisissez un objet</option>
-                                <option value="demande-service">Demande de service</option>
-                                <option value="demande-information">Demande d'information</option>
-                                <option value="proposition-partenariat">Proposition de partenariat</option>
-                                <option value="autre">Autre</option>
-                            </select>
-                            <span class="error-message" data-field="objet"></span>
-                        </div>
-                    </div>
-                    
-                    <!-- Section réseaux sociaux dynamiques -->
-                    <div class="form-group social-networks-section">
-                        <div class="social-header">
-                            <label class="form-label">Réseaux sociaux phares (optionnel)</label>
-                            <button type="button" class="add-social-btn" id="addSocialNetwork">
-                                <span>+</span> Ajouter
-                            </button>
-                        </div>
-                        <div id="socialNetworksContainer" class="social-networks-container">
-                            <!-- Les réseaux sociaux seront ajoutés dynamiquement ici -->
-                        </div>
-                        <p class="form-help">Ajoutez jusqu'à 5 réseaux sociaux pour mieux vous connaître</p>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message" class="form-label">Message / Motivations *</label>
-                        <textarea id="message" name="message" class="form-textarea" rows="5" required 
-                                  placeholder="Décrivez votre projet, vos besoins ou vos motivations..."></textarea>
-                        <span class="error-message" data-field="message"></span>
-                    </div>
-                    
-                    <div class="form-submit">
-                        <button type="submit" class="btn submit-btn">
-                            <span class="btn-text">Envoyer le message</span>
-                            <span class="btn-loader"></span>
-                        </button>
-                    </div>
-                </form>
-            </div>
+                <!-- Première rangée : Nom, Prénom, Réseaux social fave, Speudo, Bouton + -->
+                <div class="contact-form">
+                    <input type="text" name="nom" placeholder="Nom" class="form-input" required>
+                    <input type="text" name="prenom" placeholder="Prénom" class="form-input" required>
+                    <select name="social-type-default" class="form-select">
+                        <option value="">Réseaux social fave</option>
+                        <option value="linkedin">LinkedIn</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="twitter">Twitter</option>
+                        <option value="tiktok">TikTok</option>
+                        <option value="youtube">YouTube</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                    <input type="text" name="social-account-default" placeholder="Speudo" class="form-input">
+                    <button type="button" class="add-social-btn" id="addSocialNetwork">+</button>
+                </div>
+
+                <!-- Deuxième rangée : Email, Objet, Message -->
+                <div class="form-row-2">
+                    <input type="email" name="email" placeholder="Email" class="form-input" required>
+                    <select name="objet" class="form-select" required>
+                        <option value="">Objet</option>
+                        <option value="demande-service">Demande de service</option>
+                        <option value="demande-information">Demande d'information</option>
+                        <option value="proposition-partenariat">Proposition de partenariat</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                    <textarea name="message" placeholder="message ..." class="form-textarea message-area" required></textarea>
+                </div>
+
+                <!-- Container pour les réseaux sociaux supplémentaires -->
+                <div id="socialNetworksContainer" class="social-networks-container">
+                    <!-- Les réseaux sociaux supplémentaires seront ajoutés ici -->
+                </div>
+
+                <!-- Bouton d'envoi -->
+                <div class="form-submit">
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Envoyer</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                </div>
+            </form>
         </div>
-        
-        <div class="footer-bottom">
-            <div class="footer-copyright">
-                <p>&copy; {{ "now" | date: "%Y" }} {{ site.company.name }}. Tous droits réservés.</p>
-            </div>
+
+        <!-- Sections légales selon la maquette -->
+        <div class="footer-legal">
+            <h4>Conditions Générales d'Utilisation</h4>
+            <p>En utilisant ce site, vous acceptez nos conditions d'utilisation et vous vous engagez à respecter la confidentialité de nos services. Hookly se réserve le droit de modifier ces conditions à tout moment.</p>
+            
+            <h4>Politique de Confidentialité</h4>
+            <p>Vos données personnelles sont protégées et utilisées uniquement dans le cadre de nos services d'accompagnement. Vous disposez d'un droit d'accès, de modification et de suppression de vos données en nous contactant.</p>
+            
+            <h4>Mentions Légales</h4>
+            <p>Site édité par Hookly - Agence de management digital. Contact : contact@hookly.com</p>
         </div>
     </div>
 </footer>
 
-<!-- Template pour les réseaux sociaux -->
+<!-- Template pour les réseaux sociaux supplémentaires -->
 <template id="socialNetworkTemplate">
     <div class="social-network-item">
-        <div class="social-network-fields">
-            <div class="form-group">
-                <label class="form-label">Réseau social phare</label>
-                <select name="social-type" class="form-select social-type-select" required>
-                    <option value="">Type de réseau</option>
-                    <option value="linkedin">LinkedIn</option>
-                    <option value="facebook">Facebook</option>
-                    <option value="instagram">Instagram</option>
-                    <option value="twitter">Twitter</option>
-                    <option value="tiktok">TikTok</option>
-                    <option value="youtube">YouTube</option>
-                    <option value="autre">Autre</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="form-label">Pseudo</label>
-                <input type="text" name="social-account" class="form-input social-account-input" 
-                       placeholder="Votre nom d'utilisateur" required>
-            </div>
-            <button type="button" class="remove-social-btn" aria-label="Supprimer ce réseau">
-                −
-            </button>
-        </div>
+        <select name="social-type" class="form-select social-type-select" required>
+            <option value="">Réseaux social fave</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="facebook">Facebook</option>
+            <option value="instagram">Instagram</option>
+            <option value="twitter">Twitter</option>
+            <option value="tiktok">TikTok</option>
+            <option value="youtube">YouTube</option>
+            <option value="autre">Autre</option>
+        </select>
+        <input type="text" name="social-account" class="form-input social-account-input" 
+               placeholder="Speudo" required>
+        <button type="button" class="remove-social-btn" aria-label="Supprimer ce réseau">
+            −
+        </button>
     </div>
 </template>

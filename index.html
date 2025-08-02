@@ -4,306 +4,90 @@ title: Accueil
 description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
 ---
 
-<!-- Section 1 - Opacité 70% -->
-<section class="page-section section-1">
+<div class="main-content">
     <div class="container">
-        <div class="hero-content">
-            <h1 class="hero-title">Bienvenue chez Hookly</h1>
-            <p class="hero-description">
-                Votre partenaire de confiance pour concrétiser vos projets les plus ambitieux.
-                Nous mettons notre expertise au service de votre réussite.
-            </p>
-            <div class="hero-actions">
-                <a href="#footer-form" class="btn btn-secondary hero-btn">Démarrer votre projet</a>
-                <a href="{{ '/qui-sommes-nous' | relative_url }}" class="btn btn-primary hero-btn">Découvrir notre histoire</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section 2 - Opacité 80% -->
-<section class="page-section section-2">
-    <div class="container">
-        <h2 class="section-title">Nos domaines d'expertise</h2>
-        <p class="section-description">
-            Nous mettons notre savoir-faire au service de votre réussite dans différents domaines.
-        </p>
         
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <span class="service-emoji">🎯</span>
-                </div>
-                <h3 class="service-title">Stratégie</h3>
-                <p class="service-description">
-                    Nous vous accompagnons dans la définition et la mise en œuvre de votre stratégie d'entreprise 
-                    pour atteindre vos objectifs les plus ambitieux.
-                </p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <span class="service-emoji">💡</span>
-                </div>
-                <h3 class="service-title">Innovation</h3>
-                <p class="service-description">
-                    Notre équipe vous aide à innover et à vous démarquer dans votre secteur d'activité 
-                    grâce à des solutions créatives et avant-gardistes.
-                </p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <span class="service-emoji">🚀</span>
-                </div>
-                <h3 class="service-title">Croissance</h3>
-                <p class="service-description">
-                    Ensemble, nous développons les leviers de croissance adaptés à votre entreprise 
-                    pour maximiser votre potentiel de développement.
-                </p>
-            </div>
+        <!-- Bloc principal centré - Hookly -->
+        <div class="content-block center">
+            <h1>Hookly</h1>
+            <p>
+                Hookly est une agence digitale spécialisée dans l'accompagnement et le management de créatrices de contenu sur les plateformes premium. Nous transformons votre présence digitale en véritable business rentable grâce à notre expertise en marketing digital et notre approche personnalisée.
+            </p>
         </div>
-    </div>
-</section>
 
-<!-- Section 3 - Opacité 90% -->
-<section class="page-section section-3">
-    <div class="container">
-        <div class="why-choose-content">
-            <div class="why-choose-text">
-                <h2>Pourquoi choisir Hookly ?</h2>
-                <p>
-                    Fort de notre expérience et de notre passion, nous nous engageons à vous fournir 
-                    des solutions sur mesure qui répondent parfaitement à vos besoins spécifiques.
-                </p>
-                <ul class="why-choose-list">
-                    <li>
-                        <strong>Expertise reconnue</strong> - Une équipe de professionnels expérimentés
-                    </li>
-                    <li>
-                        <strong>Approche personnalisée</strong> - Des solutions adaptées à chaque client
-                    </li>
-                    <li>
-                        <strong>Résultats mesurables</strong> - Un accompagnement orienté performance
-                    </li>
-                    <li>
-                        <strong>Relation de confiance</strong> - Un partenariat durable et transparent
-                    </li>
-                </ul>
-                <div class="why-choose-actions">
-                    <a href="{{ '/equipe' | relative_url }}" class="btn btn-secondary">Rencontrer l'équipe</a>
-                </div>
-            </div>
-            <div class="why-choose-visual">
-                <div class="visual-placeholder">
-                    <span class="visual-icon">🤝</span>
-                    <p>Votre partenaire de confiance</p>
-                </div>
-            </div>
+        <!-- Titre de section -->
+        <h2 class="section-title">Notre Mission</h2>
+
+        <!-- Bloc Notre Mission - aligné à droite -->
+        <div class="content-block right">
+            <p>
+                Accompagner les créatrices dans leur développement professionnel en maximisant leurs revenus tout en préservant leur image et leur bien-être. Chez Hookly, nous croyons que chaque créatrice mérite un accompagnement de qualité, respectueux et orienté résultats.
+            </p>
         </div>
+
+        <!-- Titre de section -->
+        <h2 class="section-title">Notre Vision</h2>
+
+        <!-- Bloc Notre Vision - aligné à gauche -->
+        <div class="content-block left">
+            <p>
+                <strong>Devenir la référence en matière de management digital pour les créatrices de contenu</strong>, en alliant excellence technique, respect humain et croissance durable. Nous construisons ensemble votre succès à long terme.
+            </p>
+        </div>
+
+        <!-- Bouton contact centré -->
+        <div class="center-button">
+            <a href="#footer-form" class="btn-center">Contactez nous</a>
+        </div>
+
     </div>
-</section>
+</div>
 
 <style>
-/* Styles spécifiques à la page d'accueil */
+/* Styles spécifiques pour respecter exactement la maquette */
 
-/* Section Hero */
-.hero-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: var(--spacing-xl) 0;
+/* Espacement entre les blocs selon la maquette */
+.content-block {
+    margin: 4rem auto;
 }
 
-.hero-title {
-    font-size: 3.5rem;
-    margin-bottom: var(--spacing-lg);
-    font-weight: var(--font-weight-bold);
-}
-
-.hero-description {
-    font-size: 1.25rem;
-    margin-bottom: var(--spacing-xl);
-    line-height: 1.7;
+.content-block.center {
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.hero-actions {
-    display: flex;
-    gap: var(--spacing-lg);
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: var(--spacing-xl);
+.content-block.left {
+    max-width: 600px;
+    margin-left: 0;
 }
 
-.hero-btn {
-    font-size: 1.125rem;
-    padding: var(--spacing-md) var(--spacing-xl);
-    min-width: 200px;
+.content-block.right {
+    max-width: 600px;
+    margin-right: 0;
 }
 
-/* Services */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xl);
-    margin-top: var(--spacing-xl);
-}
-
-.service-card {
-    background-color: var(--color-white);
-    padding: var(--spacing-xl);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
-    text-align: center;
-    transition: var(--transition-base);
-    border-top: 4px solid var(--color-primary);
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
-
-.service-icon {
-    margin-bottom: var(--spacing-lg);
-}
-
-.service-emoji {
-    font-size: 3.5rem;
-    display: block;
-}
-
-.service-title {
-    margin-bottom: var(--spacing-md);
-    color: var(--color-primary);
-    font-size: 1.5rem;
-}
-
-.service-description {
-    color: var(--color-text);
-    margin-bottom: 0;
-    line-height: 1.6;
-}
-
-/* Section Pourquoi nous choisir */
-.why-choose-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xxl);
-    align-items: center;
-}
-
-.why-choose-text h2 {
-    margin-bottom: var(--spacing-lg);
+/* Ajustements pour le titre principal */
+.content-block h1 {
     font-size: 2.5rem;
-}
-
-.why-choose-text p {
-    font-size: 1.125rem;
-    margin-bottom: var(--spacing-xl);
-    line-height: 1.7;
-}
-
-.why-choose-list {
-    list-style: none;
-    margin: var(--spacing-xl) 0;
-}
-
-.why-choose-list li {
-    padding: var(--spacing-md) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 1.125rem;
-}
-
-.why-choose-list li:last-child {
-    border-bottom: none;
-}
-
-.why-choose-list strong {
-    color: var(--color-white);
-    font-weight: var(--font-weight-bold);
-}
-
-.why-choose-actions {
-    margin-top: var(--spacing-xl);
-}
-
-.visual-placeholder {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: var(--spacing-xxl);
-    border-radius: var(--border-radius-lg);
+    margin-bottom: 1.5rem;
     text-align: center;
-    border: 2px dashed rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
 }
 
-.visual-icon {
-    font-size: 5rem;
-    display: block;
-    margin-bottom: var(--spacing-lg);
+/* Style du texte mis en évidence */
+.content-block strong {
+    color: var(--color-white);
+    text-decoration: underline;
 }
 
-.visual-placeholder p {
-    font-size: 1.25rem;
-    font-weight: var(--font-weight-bold);
-    margin: 0;
-}
-
-/* Responsive */
-@media (min-width: 768px) {
-    .hero-title {
-        font-size: 4rem;
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .content-block.left,
+    .content-block.right {
+        margin-left: auto;
+        margin-right: auto;
     }
     
-    .why-choose-content {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 767px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .hero-btn {
-        width: 100%;
-        max-width: 280px;
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Animations */
-.service-card {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-.service-card:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.service-card:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .content-block h1 {
+        font-size: 2rem;
     }
 }
 </style>
