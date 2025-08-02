@@ -26,6 +26,11 @@
                     <button type="button" class="add-social-btn" id="addSocialNetwork">+</button>
                 </div>
 
+                <!-- Container pour les réseaux sociaux supplémentaires - ENTRE les deux lignes -->
+                <div id="socialNetworksContainer" class="social-networks-container">
+                    <!-- Les réseaux sociaux supplémentaires seront ajoutés ici -->
+                </div>
+
                 <!-- Deuxième rangée : Email, Objet, Message -->
                 <div class="form-row-2">
                     <input type="email" name="email" placeholder="Email" class="form-input" required>
@@ -37,11 +42,6 @@
                         <option value="autre">Autre</option>
                     </select>
                     <textarea name="message" placeholder="message ..." class="form-textarea message-area" required></textarea>
-                </div>
-
-                <!-- Container pour les réseaux sociaux supplémentaires -->
-                <div id="socialNetworksContainer" class="social-networks-container">
-                    <!-- Les réseaux sociaux supplémentaires seront ajoutés ici -->
                 </div>
 
                 <!-- Bouton d'envoi -->
@@ -71,6 +71,8 @@
 <!-- Template pour les réseaux sociaux supplémentaires -->
 <template id="socialNetworkTemplate">
     <div class="social-network-item">
+        <div></div> <!-- Espace vide pour aligner avec Nom -->
+        <div></div> <!-- Espace vide pour aligner avec Prénom -->
         <select name="social-type" class="form-select social-type-select" required>
             <option value="">Réseaux social fave</option>
             <option value="linkedin">LinkedIn</option>

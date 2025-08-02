@@ -136,12 +136,13 @@ a:hover {
 }
 
 .header-content {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
     height: 100%;
     max-width: var(--container-max-width);
     margin: 0 auto;
+    gap: var(--spacing-xl);
 }
 
 /* Logo section - hameçon */
@@ -175,6 +176,7 @@ a:hover {
     background-color: var(--color-primary);
     border-radius: var(--border-radius-button);
     padding: 4px;
+    justify-self: start;
 }
 
 .nav-list {
@@ -223,6 +225,10 @@ a:hover {
 }
 
 /* Bouton contact dans le header */
+.contact-section {
+    justify-self: end;
+}
+
 .contact-section .btn-contact {
     background-color: var(--color-primary);
     color: var(--color-white);
@@ -473,13 +479,13 @@ a:hover {
 }
 
 /* Section réseaux sociaux */
-.social-networks-section {
-    margin-bottom: var(--spacing-xl);
+.social-networks-container {
+    margin-bottom: var(--spacing-lg);
 }
 
 .social-network-item {
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr auto;
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-md);
     align-items: center;
@@ -601,8 +607,12 @@ a:hover {
     }
     
     .social-network-item {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: var(--spacing-sm);
+    }
+    
+    .social-network-item div:empty {
+        display: none;
     }
     
     .content-block {
