@@ -226,8 +226,7 @@ a:hover {
 /* Navigation bulle réduite - côté gauche avec opacité 40% */
 .main-nav {
   position: relative;
-  background-color: var(--color-primary);
-  opacity: 0.4;
+  background-color: var(179, 137, 146, 0.4);
   border-radius: 25px;
   padding: 4px;
   flex-shrink: 0;
