@@ -1,8 +1,9 @@
-// JavaScript principal pour le site Hookly
+// JavaScript principal pour le nouveau design Hookly
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialisation de tous les composants
     initMobileMenu();
+    initNavigationSlider();
     initContactForm();
     initSocialNetworks();
     initSmoothScrolling();
@@ -21,6 +22,18 @@ function initMobileMenu() {
         mobileNav.classList.toggle('active');
         mobileToggle.classList.toggle('active');
         
+        // Animation du bouton hamburger
+        const spans = mobileToggle.querySelectorAll('span');
+        if (mobileToggle.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
+        
         // Accessibilité
         const isOpen = mobileNav.classList.contains('active');
         mobileToggle.setAttribute('aria-expanded', isOpen);
@@ -33,6 +46,13 @@ function initMobileMenu() {
             mobileNav.classList.remove('active');
             mobileToggle.classList.remove('active');
             mobileToggle.setAttribute('aria-expanded', 'false');
+            
+            // Reset du bouton hamburger
+            const spans = mobileToggle.querySelectorAll('span');
+            spans.forEach(span => {
+                span.style.transform = 'none';
+                span.style.opacity = '1';
+            });
         });
     });
     
@@ -42,6 +62,66 @@ function initMobileMenu() {
             mobileNav.classList.remove('active');
             mobileToggle.classList.remove('active');
             mobileToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
+/**
+ * Gestion du slider de navigation dynamique
+ */
+function initNavigationSlider() {
+    const navSlider = document.getElementById('navSlider');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const activeLink = document.querySelector('.nav-link.active');
+    
+    if (!navSlider || navLinks.length === 0) return;
+    
+    // Position initiale du slider sur le lien actif
+    function positionSlider(targetLink) {
+        if (!targetLink) return;
+        
+        const linkRect = targetLink.getBoundingClientRect();
+        const navRect = targetLink.closest('.main-nav').getBoundingClientRect();
+        
+        const left = linkRect.left - navRect.left - 4; // 4px = padding de la nav
+        const width = linkRect.width;
+        const height = linkRect.height;
+        
+        navSlider.style.left = left + 'px';
+        navSlider.style.width = width + 'px';
+        navSlider.style.height = height + 'px';
+        navSlider.style.opacity = '1';
+    }
+    
+    // Position initiale
+    if (activeLink) {
+        // Délai pour que le DOM soit complètement chargé
+        setTimeout(() => positionSlider(activeLink), 100);
+    }
+    
+    // Hover effect
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            positionSlider(this);
+        });
+    });
+    
+    // Retour au lien actif quand on quitte la navigation
+    const mainNav = document.querySelector('.main-nav');
+    if (mainNav) {
+        mainNav.addEventListener('mouseleave', function() {
+            if (activeLink) {
+                positionSlider(activeLink);
+            } else {
+                navSlider.style.opacity = '0';
+            }
+        });
+    }
+    
+    // Repositionner le slider au redimensionnement
+    window.addEventListener('resize', function() {
+        if (activeLink) {
+            setTimeout(() => positionSlider(activeLink), 100);
         }
     });
 }
@@ -311,24 +391,34 @@ function initSocialNetworks() {
         
         // Mise à jour du bouton d'ajout
         updateAddButton();
+        
+        // Focus sur le premier champ
+        if (typeSelect) {
+            setTimeout(() => typeSelect.focus(), 100);
+        }
     }
     
     function removeSocialNetwork(networkItem) {
-        networkItem.remove();
-        socialCount--;
-        updateAddButton();
+        // Animation de sortie
+        networkItem.style.animation = 'slideOut 0.3s ease';
         
-        // Réindexation des champs restants
-        reindexSocialFields();
+        setTimeout(() => {
+            networkItem.remove();
+            socialCount--;
+            updateAddButton();
+            
+            // Réindexation des champs restants
+            reindexSocialFields();
+        }, 300);
     }
     
     function updateAddButton() {
         if (socialCount >= maxSocial) {
             addBtn.disabled = true;
-            addBtn.textContent = `Maximum ${maxSocial} réseaux atteint`;
+            addBtn.innerHTML = `<span>✓</span> Maximum ${maxSocial} réseaux atteint`;
         } else {
             addBtn.disabled = false;
-            addBtn.innerHTML = '<span class="btn-icon">+</span> Ajouter un réseau';
+            addBtn.innerHTML = '<span>+</span> Ajouter';
         }
     }
     
@@ -392,20 +482,54 @@ function initSmoothScrolling() {
             if (target) {
                 e.preventDefault();
                 
+                // Calcul de la position en tenant compte du header fixe
+                const headerHeight = document.querySelector('.site-header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight - 20;
+                
                 // Défilement fluide
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
                 
                 // Focus pour l'accessibilité
-                if (target.tabIndex === -1) {
-                    target.tabIndex = -1;
-                }
-                target.focus();
+                setTimeout(() => {
+                    if (target.tabIndex === -1) {
+                        target.tabIndex = -1;
+                    }
+                    target.focus();
+                }, 500);
             }
         });
     });
+}
+
+/**
+ * Animation pour la suppression des réseaux sociaux
+ */
+const slideOutKeyframes = `
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 200px;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+        max-height: 0;
+        padding: 0;
+        margin: 0;
+    }
+}
+`;
+
+// Injection des keyframes dans le CSS
+if (!document.querySelector('#slideOutStyles')) {
+    const style = document.createElement('style');
+    style.id = 'slideOutStyles';
+    style.textContent = slideOutKeyframes;
+    document.head.appendChild(style);
 }
 
 /**
@@ -431,6 +555,10 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
     window.HooklyDebug = {
         debugFormData,
         validateForm,
-        collectSocialNetworksData
+        collectSocialNetworksData,
+        positionSlider: () => {
+            const activeLink = document.querySelector('.nav-link.active');
+            if (activeLink) initNavigationSlider();
+        }
     };
 }

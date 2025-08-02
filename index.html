@@ -4,22 +4,25 @@ title: Accueil
 description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
 ---
 
-<section class="hero-section">
+<!-- Section 1 - Opacité 70% -->
+<section class="page-section section-1">
     <div class="container">
         <div class="hero-content">
             <h1 class="hero-title">Bienvenue chez Hookly</h1>
             <p class="hero-description">
                 Votre partenaire de confiance pour concrétiser vos projets les plus ambitieux.
+                Nous mettons notre expertise au service de votre réussite.
             </p>
             <div class="hero-actions">
-                <a href="#contact-form" class="btn btn-primary hero-btn">Démarrer votre projet</a>
-                <a href="{{ '/entreprise' | relative_url }}" class="btn btn-secondary hero-btn">Découvrir notre histoire</a>
+                <a href="#footer-form" class="btn btn-secondary hero-btn">Démarrer votre projet</a>
+                <a href="{{ '/entreprise' | relative_url }}" class="btn btn-primary hero-btn">Découvrir notre histoire</a>
             </div>
         </div>
     </div>
 </section>
 
-<section class="services-section">
+<!-- Section 2 - Opacité 80% -->
+<section class="page-section section-2">
     <div class="container">
         <h2 class="section-title">Nos domaines d'expertise</h2>
         <p class="section-description">
@@ -33,7 +36,8 @@ description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
                 </div>
                 <h3 class="service-title">Stratégie</h3>
                 <p class="service-description">
-                    Nous vous accompagnons dans la définition et la mise en œuvre de votre stratégie d'entreprise.
+                    Nous vous accompagnons dans la définition et la mise en œuvre de votre stratégie d'entreprise 
+                    pour atteindre vos objectifs les plus ambitieux.
                 </p>
             </div>
             
@@ -43,7 +47,8 @@ description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
                 </div>
                 <h3 class="service-title">Innovation</h3>
                 <p class="service-description">
-                    Notre équipe vous aide à innover et à vous démarquer dans votre secteur d'activité.
+                    Notre équipe vous aide à innover et à vous démarquer dans votre secteur d'activité 
+                    grâce à des solutions créatives et avant-gardistes.
                 </p>
             </div>
             
@@ -53,14 +58,16 @@ description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
                 </div>
                 <h3 class="service-title">Croissance</h3>
                 <p class="service-description">
-                    Ensemble, nous développons les leviers de croissance adaptés à votre entreprise.
+                    Ensemble, nous développons les leviers de croissance adaptés à votre entreprise 
+                    pour maximiser votre potentiel de développement.
                 </p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="why-choose-section">
+<!-- Section 3 - Opacité 90% -->
+<section class="page-section section-3">
     <div class="container">
         <div class="why-choose-content">
             <div class="why-choose-text">
@@ -84,7 +91,7 @@ description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
                     </li>
                 </ul>
                 <div class="why-choose-actions">
-                    <a href="{{ '/equipe' | relative_url }}" class="btn btn-primary">Rencontrer l'équipe</a>
+                    <a href="{{ '/equipe' | relative_url }}" class="btn btn-secondary">Rencontrer l'équipe</a>
                 </div>
             </div>
             <div class="why-choose-visual">
@@ -97,40 +104,27 @@ description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
     </div>
 </section>
 
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content">
-            <h2 class="cta-title">Prêt à commencer votre projet ?</h2>
-            <p class="cta-description">
-                Contactez-nous dès aujourd'hui pour discuter de vos besoins et découvrir comment nous pouvons vous aider.
-            </p>
-            <div class="cta-actions">
-                <a href="#contact-form" class="btn btn-primary cta-btn">Nous contacter</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-{% include contact-form.html %}
-
 <style>
 /* Styles spécifiques à la page d'accueil */
-.hero-section {
-    background: linear-gradient(135deg, var(--color-secondary) 0%, #f0e6d6 100%);
-    padding: var(--spacing-xxl) 0;
+
+/* Section Hero */
+.hero-content {
     text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) 0;
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: var(--spacing-lg);
-    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
 }
 
 .hero-description {
     font-size: 1.25rem;
-    color: var(--color-gray-dark);
     margin-bottom: var(--spacing-xl);
+    line-height: 1.7;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -141,17 +135,16 @@ description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
     gap: var(--spacing-lg);
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: var(--spacing-xl);
 }
 
 .hero-btn {
     font-size: 1.125rem;
     padding: var(--spacing-md) var(--spacing-xl);
+    min-width: 200px;
 }
 
-.services-section {
-    padding: var(--spacing-xxl) 0;
-}
-
+/* Services */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -166,10 +159,11 @@ description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
     box-shadow: var(--shadow-md);
     text-align: center;
     transition: var(--transition-base);
+    border-top: 4px solid var(--color-primary);
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
 }
 
@@ -178,30 +172,39 @@ description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
 }
 
 .service-emoji {
-    font-size: 3rem;
+    font-size: 3.5rem;
     display: block;
 }
 
 .service-title {
     margin-bottom: var(--spacing-md);
     color: var(--color-primary);
+    font-size: 1.5rem;
 }
 
 .service-description {
-    color: var(--color-gray);
+    color: var(--color-text);
     margin-bottom: 0;
+    line-height: 1.6;
 }
 
-.why-choose-section {
-    background-color: var(--color-gray-light);
-    padding: var(--spacing-xxl) 0;
-}
-
+/* Section Pourquoi nous choisir */
 .why-choose-content {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-xxl);
     align-items: center;
+}
+
+.why-choose-text h2 {
+    margin-bottom: var(--spacing-lg);
+    font-size: 2.5rem;
+}
+
+.why-choose-text p {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.7;
 }
 
 .why-choose-list {
@@ -211,11 +214,17 @@ description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
 
 .why-choose-list li {
     padding: var(--spacing-md) 0;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.125rem;
 }
 
 .why-choose-list li:last-child {
     border-bottom: none;
+}
+
+.why-choose-list strong {
+    color: var(--color-white);
+    font-weight: var(--font-weight-bold);
 }
 
 .why-choose-actions {
@@ -223,60 +232,27 @@ description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
 }
 
 .visual-placeholder {
-    background-color: var(--color-secondary);
+    background-color: rgba(255, 255, 255, 0.1);
     padding: var(--spacing-xxl);
     border-radius: var(--border-radius-lg);
     text-align: center;
-    border: 2px dashed var(--color-primary);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .visual-icon {
-    font-size: 4rem;
+    font-size: 5rem;
     display: block;
     margin-bottom: var(--spacing-lg);
 }
 
 .visual-placeholder p {
-    font-size: 1.125rem;
-    color: var(--color-primary);
+    font-size: 1.25rem;
     font-weight: var(--font-weight-bold);
     margin: 0;
 }
 
-.cta-section {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: var(--spacing-xxl) 0;
-    text-align: center;
-}
-
-.cta-title {
-    color: var(--color-white);
-    margin-bottom: var(--spacing-lg);
-}
-
-.cta-description {
-    font-size: 1.125rem;
-    margin-bottom: var(--spacing-xl);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cta-btn {
-    background-color: var(--color-white);
-    color: var(--color-primary);
-    border-color: var(--color-white);
-    font-size: 1.125rem;
-    padding: var(--spacing-md) var(--spacing-xl);
-}
-
-.cta-btn:hover {
-    background-color: var(--color-secondary);
-    border-color: var(--color-secondary);
-    color: var(--color-primary);
-}
-
+/* Responsive */
 @media (min-width: 768px) {
     .hero-title {
         font-size: 4rem;
@@ -284,6 +260,50 @@ description: Découvrez Hookly, votre partenaire de confiance pour vos projets.
     
     .why-choose-content {
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animations */
+.service-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.service-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.service-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 </style>
