@@ -226,7 +226,7 @@ a:hover {
 /* Navigation bulle réduite - côté gauche avec opacité 40% */
 .main-nav {
   position: relative;
-  background-color: var(179, 137, 146, 0.4);
+  background-color: rgba(179, 137, 146, 0.4);
   border-radius: 25px;
   padding: 4px;
   flex-shrink: 0;
@@ -285,8 +285,7 @@ a:hover {
 }
 
 .contact-section .btn-contact {
-  background-color: var(--color-primary);
-  opacity: 0.4;
+  background-color: rgba(179, 137, 146, 0.4);
   color: #5a4449 !important;
   padding: 8px 16px;
   border-radius: 20px;
